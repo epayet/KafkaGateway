@@ -1,0 +1,1 @@
+The main class (KafkaInfoApi) returs simple pojos from info package.
