@@ -15,6 +15,7 @@ import java.util.List;
 
 /**
  * Created by emmanuel_payet on 27/11/14.
+ * TODO : Get the other partitions
  */
 public class KafkaInfoApi {
     private ZookeeperClient zookeeperClient;
