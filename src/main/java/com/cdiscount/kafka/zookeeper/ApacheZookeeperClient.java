@@ -21,7 +21,6 @@ public class ApacheZookeeperClient implements ZookeeperClient {
         zooKeeper = new ZooKeeper(connectionString, 10000, null);
     }
 
-    @Override
     public List<String> getChildren(String path) throws ZookeeperException{
         try {
             return zooKeeper.getChildren(path, false);
@@ -42,7 +41,6 @@ public class ApacheZookeeperClient implements ZookeeperClient {
         }
     }
 
-    @Override
     public JSONObject getJsonData(String path) throws ZookeeperException {
         return new JSONObject(getData(path));
     }
