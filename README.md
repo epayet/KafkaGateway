@@ -6,7 +6,7 @@ This API exposes simple Gateway objects from a running [Kafka](http://kafka.apac
 
 Get some information for the first broker:
 
-```
+``` Java
 // Create a KafkaGatewayApi instance with the address of the zookeeper instance
 KafkaGatewayApi kafkaGatewayApi = new KafkaGatewayApi("localhost:2181");
 
@@ -20,7 +20,7 @@ System.out.println("Broker 1 : host : " + broker.host + ", id: " + broker.id + "
 
 Print every 5 seconds information about the first consumer first topic (Log size, offset, lag):
 
-```
+``` Java
 while(true) {
     // Create a KafkaGatewayApi instance with the address of the zookeeper instance
     KafkaGatewayApi kafkaGatewayApi = new KafkaGatewayApi("localhost:2181");
@@ -43,7 +43,7 @@ while(true) {
 
 An easy way to launch a simple instance of Kafka and Zookeeper with Docker using [the spotify/kafka container](https://github.com/spotify/docker-kafka):
 
-```
+``` Shell
 docker run -p 2181:2181 -p 9092:9092 spotify/kafka
 ```
 
@@ -53,7 +53,7 @@ It will map the zookeeper port (2181) and the kafka port (9092) on your machine.
 
 Available methods with examples:
 
-```
+``` Java
 // Create a KafkaGatewayApi instance with the address of the zookeeper instance
 KafkaGatewayApi kafkaGatewayApi = new KafkaGatewayApi("localhost:2181");
 
@@ -112,7 +112,7 @@ If you think more Gateway objects and properties could be useful, don't hesitate
 
 Launch the tests:
 
-```
+``` Shell
 gradle test
 ```
 
