@@ -78,33 +78,33 @@ As [Martin Fowler defines it](http://martinfowler.com/eaaCatalog/gateway.html), 
 
 Information about a Kafka broker
 
-* host
-* id
-* port
+* **host**
+* **id**
+* **port**
 
 ### ConsumerGateway
 
 Information about a Kafka consumer
 
-* name
-* consumerTopicsGateway: The List of topics that the consumer consumes
+* **name**
+* **consumerTopicsGateway**: The List of topics that the consumer consumes
 
 ### ConsumerTopicGateway
 
 Information about a Topic consumed by a Consumer
 
-* name
-* offset: Current cursor of the consumer
-* logSize: Total number of messages of the topic
-* lag: Number of messages that must be consumed (logSize - offset)
+* **name**
+* **offset**: Current cursor of the consumer
+* **logSize**: Total number of messages of the topic
+* **lag**: Number of messages that must be consumed (logSize - offset)
 
 ### TopicGateway
 
 Information about a Topic (regardless of a certain consumer)
 
-* name
-* partitionIds
-* leaderId: Id of the leader broker
+* **name**
+* **partitionIds**
+* **leaderId**: Id of the leader broker
 
 ## Contributing
 
