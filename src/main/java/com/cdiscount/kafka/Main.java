@@ -30,8 +30,8 @@ public class Main {
 //            Thread.sleep(5000);
 //        }
 
-        KafkaGatewayApi kafkaGatewayApi = new KafkaGatewayApi(createApacheZookeeperClient("localhost:2181"), new KafkaApiUtils());
         try {
+            KafkaGatewayApi kafkaGatewayApi = new KafkaGatewayApi("localhost:2181");
             List<BrokerGateway> brokers = kafkaGatewayApi.getBrokers();
             List<TopicGateway> topics = kafkaGatewayApi.getTopics();
             List<ConsumerGateway> consumers = kafkaGatewayApi.getConsumers();
@@ -44,23 +44,13 @@ public class Main {
     }
 
     private static List<ConsumerGateway> getConsumerInfos() {
-        KafkaGatewayApi kafkaGatewayApi = new KafkaGatewayApi(createApacheZookeeperClient("localhost:2181"), new KafkaApiUtils());
         List<ConsumerGateway> consumersInfo = new ArrayList<ConsumerGateway>();
         try {
+            KafkaGatewayApi kafkaGatewayApi = new KafkaGatewayApi("localhost:2181");
             consumersInfo = kafkaGatewayApi.getConsumers();
         } catch (ZookeeperException e) {
             e.printStackTrace();
         }
         return consumersInfo;
-    }
-
-    private static ApacheZookeeperClient createApacheZookeeperClient(String connectionString) {
-        ApacheZookeeperClient zookeeperClient = null;
-        try {
-            zookeeperClient = new ApacheZookeeperClient(connectionString);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        return zookeeperClient;
     }
 }

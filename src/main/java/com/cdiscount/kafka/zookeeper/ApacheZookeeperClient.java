@@ -17,8 +17,12 @@ public class ApacheZookeeperClient implements ZookeeperClient {
         this.zooKeeper = zooKeeper;
     }
 
-    public ApacheZookeeperClient(String connectionString) throws IOException {
-        zooKeeper = new ZooKeeper(connectionString, 10000, null);
+    public ApacheZookeeperClient(String connectionString) throws ZookeeperException {
+        try {
+            zooKeeper = new ZooKeeper(connectionString, 10000, null);
+        } catch (IOException e) {
+            throw new ZookeeperException(e);
+        }
     }
 
     public List<String> getChildren(String path) throws ZookeeperException{

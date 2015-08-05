@@ -5,11 +5,13 @@ import com.cdiscount.kafka.gateway.ConsumerGateway;
 import com.cdiscount.kafka.gateway.ConsumerTopicGateway;
 import com.cdiscount.kafka.gateway.TopicGateway;
 import com.cdiscount.kafka.utils.KafkaApiUtils;
+import com.cdiscount.kafka.zookeeper.ApacheZookeeperClient;
 import com.cdiscount.kafka.zookeeper.ZookeeperClient;
 import com.cdiscount.kafka.zookeeper.ZookeeperException;
 import kafka.javaapi.consumer.SimpleConsumer;
 import org.json.JSONObject;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -27,6 +29,11 @@ public class KafkaGatewayApi {
     public KafkaGatewayApi(ZookeeperClient zookeeperClient, KafkaApiUtils kafkaApiUtils) {
         this.zookeeperClient = zookeeperClient;
         this.kafkaApiUtils = kafkaApiUtils;
+    }
+
+    public KafkaGatewayApi(String zookeeperAddress) throws ZookeeperException {
+        this.zookeeperClient = new ApacheZookeeperClient(zookeeperAddress);
+        this.kafkaApiUtils = new KafkaApiUtils();
     }
 
     public List<ConsumerGateway> getConsumers() throws ZookeeperException {
