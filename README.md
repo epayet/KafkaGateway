@@ -1,6 +1,6 @@
 # Kafka Gateway API
 
-This API exposes simple Gateway objects from a running [Kafka](http://kafka.apache.org/)/[Zookeeper](https://zookeeper.apache.org/) instance. We easily get information about Brokers, Consumers, Topics, etc.
+This API exposes simple Gateway objects from a running [Kafka](http://kafka.apache.org/)/[Zookeeper](https://zookeeper.apache.org/) instance. We easily get information about Brokers, Consumers, Topics, etc. via Gateway objects (POJOs).
 
 ## Quick Examples
 
